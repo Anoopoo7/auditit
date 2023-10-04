@@ -1,0 +1,25 @@
+{
+  "name": "audit-it",
+  "version": "1.0.0",
+  "description": "Audit-it is a lightweight npm package that allows you to effortlessly track and visualize user activities on your website in a graphical format. With easy integration into your web applications, you can gain valuable insights into user engagement, behavior, and trends. Monitor user interactions, page views, and more, and transform this data into informative graphs and charts for better decision-making. Enhance your understanding of user behavior with Audit-it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anoopoo7/auditit.git"
+  },
+  "keywords": [
+    "web",
+    "audits",
+    "analytics",
+    "audits"
+  ],
+  "author": "Anoop sunitha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Anoopoo7/auditit/issues"
+  },
+  "homepage": "https://github.com/Anoopoo7/auditit#readme"
+}
