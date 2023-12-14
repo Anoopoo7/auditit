@@ -24,7 +24,9 @@
   <strong>Open-Source Web Auditing Services</strong>
   <br>
   <br>
-  Elevate your enterprise email game with our MS-based, headless email platform fortified with BX001 security.<br> This open-source solution, leveraging Express, React.js, and MongoDB, ensures top-notch email security, scalability, and customization.
+  Audit-It is a lightweight and open-source web analytics system built on Express.js and Algolia. Easily monitor user clicks on configured pages and visualize events on a centralized dashboard. Installation is simple with npm, and configuration allows seamless integration with your Express.js application. Empower your analytics with Audit-It!
+
+## Features
 </p>
 
 ---
@@ -37,54 +39,58 @@
 
 ## Features
 
-- **User-Friendly**: Unlike traditional systems, our solution does not store sensitive user data, providing an additional layer of privacy and security. User data is validated and processed in real-time, minimizing the risk of data breaches and ensuring compliance with data protection regulations.
-
-- **Complete Customization**: Built on a microservices architecture, our system delivers exceptional performance and scalability. Each microservice is designed for a specific function, enabling rapid response times and efficient resource utilization. This architecture ensures your web applications can handle increasing workloads with ease.
-
-- **Security by BX001**: Enhancing security by ensuring that only authorized users with valid tokens can access protected resources. This authentication method offers robust protection against unauthorized access.
-
-- **Automate and Manual Triggers**: Tailor the email service to your specific needs. Customize settings, add features, and integrate additional security measures as required, giving you full control over your email infrastructure.
-
-- **Data Analytics**: Gain insights into your email communication with our built-in analytics tools. Track email delivery rates, open rates, click-through rates, and more to understand the effectiveness of your communication strategies.
+- **Easy Installation:** Get started quickly with npm install audit-it.
+- **Flexible Configuration:** Customize tracking for specific pages using a simple configuration file.
+- **Centralized Dashboard:** Monitor and analyze user events conveniently from a centralized dashboard.
+- **Community Contributions:** Open to contributions and improvements from the community.
 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+You need to Sign in to [**Audit Admin Dashboard**](https://audit-admin.vercel.app)
+and create pages and their curresponding events to record.
 
-1. Clone the repository:
+
+1. Insall on project:
 ```bash
-git clone https://github.com/Anoopoo7/auditit.git
+npm instal audit-it
 ```
-2. Install dependencies: 
+2. Import and call it Dom events: 
 ```bash
-npm i
+import record from "audit-it"
+
+const MyComponent = () => {
+
+    const handleTrigger = () => {
+        #pass the event name 
+        record("user_read_desc");
+    }
+
+    return (
+        <Button onClick={handleTrigger} >click</Button>
+    );
+}
 ```
-3. Start the application: 
+if you are not passing the event, then user will be ```anonymous``` andpage will take up from the current pathname
+<br>
+
+3. Customize the event and page: 
 ```bash
-npm start
+....
+# changing the page name
+const handleTrigger = () => {
+    # passing event and page
+    record("user_read_desc", "home_page");
+}
+
+
+# passing user info
+const handleTrigger = () => {
+    record("user_read_desc", userData?.email);
+}
+.....
 ```
 
-<!-- ## Configuration
-
-Open the `application.yml` file located in the `src/main/resources` directory.
-
-Configure the application by modifying the properties in the `application.yml` file as needed. Here's an explanation of the key properties:
-
-- `server.port`: The port on which the application will run.
-- `custom.baseUrl`: The base URL for external services or APIs.
-- `custom.verifyUser`: The path for verifying user data.
-- `custom.anonymusUser`: The path for anonymous user data.
-- `custom.token.fields`: Fields required for token validation.
-- `custom.token.secret`: The secret key for token generation and validation.
-- `custom.token.refreshInterval`: The token refresh interval in seconds.
-- `custom.token.accessInterval`: The token access interval in seconds. -->
-
-<!-- ## Usage
-
-- Create an API for fetching logged and Anonymus User information by unique fields and that end point can be used as <b>verifyUser</b> end point.<br/>
-It should be functional for feching user data. Token will be generated with this API response.
-- Token fields should be configured in <b>fields</b>. -->
 - For more information https://crosscodeblogs.netlify.app/blog/auditit
 
 ## License
